@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import GenerCard from "../components/GenerCard";
 import ItemSeperator from "../components/ItemSeperator";
+import MovieCard from "../components/MovieCard";
 import COLORS from "../constants/Colors";
 import FONTS from "../constants/Fonts";
 
@@ -44,6 +45,18 @@ const HomeScreen = () => {
               onPress={setActiveGener}
             />
           )}
+        />
+      </View>
+      <View>
+        <FlatList
+          data={Geners}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item}
+          ItemSeparatorComponent={() => <ItemSeperator width={20} />}
+          ListHeaderComponent={() => <ItemSeperator width={20} />}
+          ListFooterComponent={() => <ItemSeperator width={20} />}
+          renderItem={({ item }) => <MovieCard />}
         />
       </View>
     </ScrollView>
