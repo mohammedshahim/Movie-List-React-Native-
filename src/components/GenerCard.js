@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
 import COLORS from "../constants/Colors";
+import FONTS from "../constants/Fonts";
 
 const { width } = Dimensions.get("screen");
 const setWidth = (w) => (width / 100) * w;
@@ -41,6 +42,7 @@ const style = StyleSheet.create({
   generText: {
     fontSize: 13,
     color: COLORS.ACTIVE,
+    fontFamily: FONTS.BOLD,
   },
 });
 
