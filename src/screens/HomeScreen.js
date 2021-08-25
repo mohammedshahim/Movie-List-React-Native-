@@ -21,11 +21,11 @@ import {
 
 const Geners = ["All", "Action", "Comedy", "Romance", "Horror", "Sci-Fi"];
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [activeGener, setActiveGener] = useState("All");
   const [nowPlayingMovies, setNowPlayingMovies] = useState({});
   const [upcomingMovies, setUpcomingMovies] = useState({});
-  const [genres, setGenres] = useState([{ id: 101101, name: "All" }]);
+  const [genres, setGenres] = useState([{ id: 101101100, name: "All" }]);
 
   useEffect(() => {
     getNowPlayingMoives().then((movieResponse) =>
@@ -84,6 +84,7 @@ const HomeScreen = () => {
               voteCount={item.vote_count}
               poster={item.poster_path}
               heartLess={false}
+              onPress={() => navigation.navigate("movie", { movieId: item.id })}
             />
           )}
         />
@@ -109,6 +110,7 @@ const HomeScreen = () => {
               voteCount={item.vote_count}
               poster={item.poster_path}
               size={0.6}
+              onPress={() => navigation.navigate("movie", { movieId: item.id })}
             />
           )}
         />
